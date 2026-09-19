@@ -1,0 +1,161 @@
+@font-face {
+  font-family: 'Martian Mono';
+  src: url('fonts/martian-mono-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Martian Mono';
+  src: url('fonts/martian-mono-medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --nord0: #2E3440;
+  --nord1: #3B4252;
+  --nord3: #4C566A;
+  --nord4: #D8DEE9;
+  --text-soft: rgba(216, 222, 233, 0.8);
+  --nord9: #81A1C1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 380px;
+  margin: 0;
+  background: var(--nord0);
+  color: var(--nord4);
+  font-family: 'Martian Mono', 'MartianMono Nerd Font', Consolas, 'Courier New', monospace;
+  font-size: 12px;
+}
+
+.header {
+  padding: 12px 16px;
+  background: var(--nord1);
+}
+
+.title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.url {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: var(--text-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.param-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 320px;
+  padding: 12px 8px;
+  overflow-y: auto;
+}
+
+.param-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 8px 8px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.param-item:hover {
+  background: var(--nord1);
+}
+
+.param-item input[type='checkbox'] {
+  flex-shrink: 0;
+  margin: 0;
+  accent-color: var(--nord9);
+}
+
+.param-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.param-key {
+  font-size: 12px;
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.param-value {
+  font-size: 11px;
+  color: var(--text-soft);
+  word-break: break-all;
+}
+
+.no-params {
+  padding: 24px 16px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--nord3);
+}
+
+.preview {
+  padding: 8px 16px;
+  font-size: 11px;
+  color: var(--text-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-top: 1px solid var(--nord1);
+}
+
+.footer {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--nord1);
+}
+
+.btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.btn-primary {
+  background: var(--nord9);
+  color: var(--nord0);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #93B7D1;
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--nord3);
+  color: var(--nord9);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  border-color: var(--nord4);
+}
