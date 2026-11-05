@@ -40,6 +40,18 @@ function renderPreview() {
 function renderParams() {
   const list = document.getElementById('paramList')
   list.innerHTML = ''
+
+  const selectAllRow = document.createElement('label')
+  selectAllRow.className = 'param-item select-all'
+
+  const selectAll = document.createElement('input')
+  selectAll.type = 'checkbox'
+  selectAll.checked = true
+  selectAll.id = 'selectAll'
+
+  selectAllRow.appendChild(selectAll)
+  list.appendChild(selectAllRow)
+
   currentParams.forEach((param, index) => {
     const item = document.createElement('label')
     item.className = 'param-item'
@@ -68,7 +80,25 @@ function renderParams() {
   })
 }
 
-document.getElementById('paramList').addEventListener('change', renderPreview)
+document.getElementById('paramList').addEventListener('change', (event) => {
+  if (event.target.id === 'selectAll') {
+    const checkboxes = document.querySelectorAll('#paramList .param-item:not(.select-all) input[type="checkbox"]')
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = event.target.checked
+    })
+  }
+  updateSelectAllState()
+  renderPreview()
+})
+
+function updateSelectAllState() {
+  const selectAll = document.getElementById('selectAll')
+  if (!selectAll) return
+  const checkboxes = document.querySelectorAll('#paramList .param-item:not(.select-all) input[type="checkbox"]')
+  const checkedCount = Array.from(checkboxes).filter((checkbox) => checkbox.checked).length
+  selectAll.checked = checkedCount === checkboxes.length
+  selectAll.indeterminate = checkedCount > 0 && checkedCount < checkboxes.length
+}
 
 function renderEmpty() {
   const list = document.getElementById('paramList')
@@ -81,7 +111,7 @@ function renderEmpty() {
 }
 
 function getKeptParams() {
-  const checkboxes = document.querySelectorAll('#paramList input[type="checkbox"]')
+  const checkboxes = document.querySelectorAll('#paramList .param-item:not(.select-all) input[type="checkbox"]')
   const kept = []
   checkboxes.forEach((checkbox) => {
     if (checkbox.checked) {

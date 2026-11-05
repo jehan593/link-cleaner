@@ -77,6 +77,20 @@ body {
   background: var(--nord1);
 }
 
+.param-item.select-all {
+  justify-content: flex-end;
+  border-bottom: 1px solid var(--nord1);
+  border-radius: 0;
+}
+
+.param-item.select-all:hover {
+  background: transparent;
+}
+
+.param-item.select-all input[type='checkbox'] {
+  accent-color: #B48EAD;
+}
+
 .param-item input[type='checkbox'] {
   flex-shrink: 0;
   margin: 0;
