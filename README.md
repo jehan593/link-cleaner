@@ -1,6 +1,6 @@
 # Link Cleaner
 
-> FYI: this project is fully vibe coded.
+> **FYI:** This project is fully vibe coded for my personal use and taste. It's shared publicly in case it's useful to you. Feel free to fork it and adapt it to your needs.
 
 Remove tracking and junk parameters from URLs, then copy the clean link or reload the tab with it.
 
@@ -22,5 +22,5 @@ Remove tracking and junk parameters from URLs, then copy the clean link or reloa
 
 Open the popup on any page. Uncheck the parameters you want to remove, then:
 
-- **Copy Clean Link** — copy the cleaned URL
-- **Reload Clean Link** — open the cleaned URL in the current tab
+- **Copy Clean Link** ΓÇö copy the cleaned URL
+- **Reload Clean Link** ΓÇö open the cleaned URL in the current tab
